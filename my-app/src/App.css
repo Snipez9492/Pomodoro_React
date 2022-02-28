@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body{
+  background-color: olive;
+  color: whitesmoke;
+  height: 100vh;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#root{
+  height: 100%;
+}
+
+.App{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.pomodoro{
+  font-size: 6em;
+}
+
+.message{
+  font-size: 0.5em;
+  min-height: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }

@@ -1,24 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import Pomodoro from './Pomodoro';
 
 function App() {
   return (
+    /*
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Pomodoro />
     </div>
+    */
+
+
+    <div className='center-screen'>
+      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="px-6 py-4">
+          <div className="App">
+            <Pomodoro />
+          </div>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 
+mb-2">#pomodoro</span>
+        </div>
+      </div>
+    </div>
+
   );
 }
 
