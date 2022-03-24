@@ -1,40 +1,45 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Pomodoro() {
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(10);
-    const [displayMessage, setDisplayMessgae] = useState(false);
+    const [time, setTime] = useState(0);
+    const [timerOn, setTimeOn] = useState(false);
 
     useEffect(() => {
-        let interval = setInterval(() => {
-            clearInterval(interval)
+        let interval = null;
 
-            if (seconds === 0) {
-                if (minutes !== 0) {
-                    setSeconds(59);
-                    setMinutes(minutes - 1);
-                } else {
-                    let minutes = displayMessage ? 24 : 4;
-                    let seconds = 59;
+        if (timerOn) {
+            interval = setInterval(() => {
+                setTime(prevTime => prevTime + 10);
+            }, 1)
+        } else {
+            clearInterval(interval);
+        }
 
-                    setSeconds(seconds);
-                    setMinutes(minutes);
-                    setDisplayMessgae(!displayMessage);
-                }
-            } else {
-                setSeconds(seconds - 1);
-            }
-        }, 1000)
-    }, [seconds])
+        return () => clearInterval(interval);
+    }, [timerOn])
 
-    const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
-    const timerSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
     return <div className='pomodoro'>
-        <div className='message'>
-            {displayMessage && <div>Take a break!!!</div>}
+        <div>
+            <span>{('0' + Math.floor(((time / 60000) % 60))).slice(-2)}:</span>
+            <span>{('0' + Math.floor(((time / 1000) % 60))).slice(-2)}:</span>
+            <span>{('0' + ((time / 10) % 100)).slice(-2)}</span>
         </div>
-        <div className='timer'>{timerMinutes}:{timerSeconds}</div>
+        <div>
+            {!timerOn && time === 0 && (
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => setTimeOn(true)}>Start</button>
+            )}
+            {timerOn && (
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => setTimeOn(false)}>Stop</button>
+            )}
+            {!timerOn && time !== 0 && (
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => setTimeOn(true)}>Resume</button>
+            )}
+            {!timerOn && time > 0 && (
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => setTime(0)}>Reset</button>
+            )}
+
+        </div>
     </div>
 
 }

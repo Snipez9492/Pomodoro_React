@@ -42,8 +42,8 @@
 }
 
 body{
-  background-color: olive;
-  color: whitesmoke;
+  background-image: linear-gradient(red, yellow);
+  color: rgb(245, 245, 245);
   height: 100vh;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -65,7 +65,7 @@ body{
 
 .message{
   font-size: 0.5em;
-  min-height: 1.3em;
+  min-height: 1.3em;  
   margin-bottom: 0.5em;
 }
 
@@ -75,4 +75,12 @@ body{
   align-items: center;
   text-align: center;
   min-height: 100vh;
+}
+
+#swag{
+  background-color: rgba(231, 223, 210, 0.863);
+}
+
+button{
+  font-size: medium;
 }

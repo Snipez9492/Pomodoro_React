@@ -4,24 +4,13 @@ import Pomodoro from './Pomodoro';
 
 function App() {
   return (
-    /*
-    <div className="App">
-      <Pomodoro />
-    </div>
-    */
 
-
-    <div className='center-screen'>
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <div class="px-6 py-4">
-          <div className="App">
-            <Pomodoro />
-          </div>
+    <div class="flex justify-center center-screen">
+      <div class="block p-6 rounded-lg shadow-lg bg-black max-w-sm">
+        <div className="App">
+          <Pomodoro />
         </div>
-        <div class="px-6 pt-4 pb-2">
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 
-mb-2">#pomodoro</span>
-        </div>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#StopWatch</span>
       </div>
     </div>
 
